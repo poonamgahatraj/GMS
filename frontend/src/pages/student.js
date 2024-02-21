@@ -30,16 +30,16 @@ export default function Student (){
         }
     },[]);
 
-function Student_Info(){
+function student_info(){
 
-    navigate('/s');
+    navigate('/s'+'/id');
     }
     
     return (
 
       <h1>
         {studentList.map((item,index)=>(
-            <li onClick={Student_Info}>Name {item.name}</li>
+            <li onClick={student_info}>Name {item.name}</li>
         ))}
       </h1>
     )
