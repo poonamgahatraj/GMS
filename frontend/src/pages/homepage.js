@@ -1,6 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
+import Info from "./props";
 
-import { useHistory } from 'react-router-dom';
+
 
 
 export default function Home (){
@@ -20,6 +21,7 @@ export default function Home (){
             <Link to="/s">StudentInfo</Link>
                 </button>
         <Outlet />
+        <Info arr={["A","B","C"]}/>
         </>
     )
 }

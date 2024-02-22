@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Student (){
     const [studentList,setStudentList] = useState([]);
+    const [open,setopen] = useState(true);
     const navigate = useNavigate();
    
     
@@ -30,17 +31,38 @@ export default function Student (){
         }
     },[]);
 
-function student_info(){
-
-    navigate('/s'+'/id');
-    }
+function get_studentinfo(id){
     
-    return (
+    navigate('/s/'+id);
 
-      <h1>
-        {studentList.map((item,index)=>(
-            <li onClick={student_info}>Name {item.name}</li>
-        ))}
-      </h1>
-    )
-}
+
+    }
+
+    function show_popup(){
+            if (open){
+               alert("hello")
+                    
+                        
+                    }
+                }
+            
+    
+    
+
+
+
+    return (
+            <>
+            <h1>
+                    {studentList.map((item,index)=>(
+                        <>
+                        <li onClick={()=>get_studentinfo(item.id)}> {item.name}</li>
+                        </>
+                    
+                    ))}
+                </h1>
+                <button onClick={show_popup}>Click</button>
+            </>
+       )
+
+    }

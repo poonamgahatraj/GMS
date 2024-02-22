@@ -6,13 +6,13 @@ import axios from 'axios'
 
 export default function StudentDetail(){
 
-    const [studentData,setStudentData] = useState([]);
+    const [studentData,setStudentData] = useState({});
 
     useEffect(()=>
     {
         try{
             axios
-            .get('http://127.0.0.1:8000/api/getAll')
+            .get('http://127.0.0.1:8000/api/'+id)
             .then((response) => {
                 console.log(response.status);
                 console.log(response.data.data);
@@ -32,10 +32,8 @@ export default function StudentDetail(){
     console.log(id);
 return(
     <>
-     <h1>Hello World{id}</h1>
-    {studentData.map((item,index)=>(
-        <li >Name {item.name}</li>
-    ))}
+     <h1>Hello World {id}</h1>
+   <p>{studentData.name}</p>
     </>
    
 )

@@ -4,7 +4,9 @@ function Info(event){
     event.preventDefault();
     const data = new FormData(event.target);
     const formdata=Object.fromEntries(data);
-    console.log(formdata);
+    
+    
+    console.log('form data as object', formdata);
     
     try{
         axios.post('http://127.0.0.1:8000/api/create', {
@@ -21,19 +23,6 @@ function Info(event){
     {
         console.log(err);
     }
-   
-   
-    
-    console.log('form data as object', formdata);
-    
-    console.log(data.get('username'));
-    console.log(data.get('userid'))
-    console.log(data.get('useraddress'))
-   
-
-  
-   
-     
    
 }
 

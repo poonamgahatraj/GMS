@@ -8,6 +8,7 @@ import Home from './pages/homepage';
 import Form from './pages/form';
 import Student from './pages/student';
 import StudentDetail from './pages/student_Info';
+import Info from './pages/props';
 
 
 export default function Route_pr(){
