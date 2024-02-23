@@ -4,6 +4,7 @@ import Info from "./props";
 
 
 
+
 export default function Home (){
     return(
         <>
@@ -22,6 +23,7 @@ export default function Home (){
                 </button>
         <Outlet />
         <Info arr={["A","B","C"]}/>
+      
         </>
     )
 }

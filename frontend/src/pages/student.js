@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Student (){
     const [studentList,setStudentList] = useState([]);
-    const [open,setopen] = useState(true);
+   
     const navigate = useNavigate();
    
     
@@ -38,13 +39,7 @@ function get_studentinfo(id){
 
     }
 
-    function show_popup(){
-            if (open){
-               alert("hello")
-                    
-                        
-                    }
-                }
+    
             
     
     
@@ -60,8 +55,8 @@ function get_studentinfo(id){
                         </>
                     
                     ))}
-                </h1>
-                <button onClick={show_popup}>Click</button>
+            </h1>
+                
             </>
        )
 

@@ -10,7 +10,7 @@ export default function App (){
   return(
    <>
     <Home/>
-    <Info arr={["A","B","C"]}/>
+    
    
    
    </>
