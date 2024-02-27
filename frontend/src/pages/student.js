@@ -1,9 +1,10 @@
-import axios from 'axios'
+import axios from 'axios';
 
 
 
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+
+import StudentInfoPopup from './studentInfoPopup';
 
 
 
@@ -11,7 +12,9 @@ import { useNavigate } from 'react-router-dom';
 export default function Student (){
     const [studentList,setStudentList] = useState([]);
    
-    const navigate = useNavigate();
+    const [showStudentPopup,setShowStudentPopup]=useState(false)
+   
+    
    
     
     useEffect(()=>
@@ -23,6 +26,7 @@ export default function Student (){
                 console.log(response.status);
                 console.log(response.data.data);
                 setStudentList(response.data.data)
+                
             })
         }
         
@@ -32,12 +36,7 @@ export default function Student (){
         }
     },[]);
 
-function get_studentinfo(id){
-    
-    navigate('/s/'+id);
 
-
-    }
 
     
             
@@ -51,11 +50,15 @@ function get_studentinfo(id){
             <h1>
                     {studentList.map((item,index)=>(
                         <>
-                        <li onClick={()=>get_studentinfo(item.id)}> {item.name}</li>
+                        <li onClick={() => setShowStudentPopup(!showStudentPopup)}> {item.name}</li>
                         </>
                     
                     ))}
             </h1>
+            <>
+            {showStudentPopup && < StudentInfoPopup  /> }
+            </>
+            
                 
             </>
        )

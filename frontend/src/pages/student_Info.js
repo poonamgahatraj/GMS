@@ -2,13 +2,13 @@ import { Routes, Route, useParams } from 'react-router-dom';
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Popup_comp from './popup';
+
 
 
 export default function StudentDetail(){
 
     const [studentData,setStudentData] = useState({});
-    const [showPopup,setShowPopup]=useState(false)
+
 
     useEffect(()=>
     {
@@ -26,20 +26,12 @@ export default function StudentDetail(){
         {
             console.log(err);
         }
-    },[]);
+    });
 
 
     let { id } = useParams();
 
     console.log(id);
-
-    function handleClick(){
-        setShowPopup(true)
-    }
-
-    function removePopup(){
-        setShowPopup(false)
-    }
 
 
 
@@ -47,11 +39,10 @@ return(
     <>
      <h1>Hello World {id}</h1>
    <p>{studentData.name}</p>
-   <button onClick={handleClick}>show Popup</button>
-   <button onClick={removePopup}>remove Popup</button>
+   <p>{studentData.address}</p>
+  
 
 
-   {showPopup && <Popup_comp />}
   
     </>
    
