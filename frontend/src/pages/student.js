@@ -11,8 +11,9 @@ import StudentInfoPopup from './studentInfoPopup';
 
 export default function Student (){
     const [studentList,setStudentList] = useState([]);
+    const [data,setData]=useState({});
    
-    const [showStudentPopup,setShowStudentPopup]=useState(false)
+    const [showStudentPopup,setShowStudentPopup]=useState(true)
    
     
    
@@ -25,7 +26,8 @@ export default function Student (){
             .then((response) => {
                 console.log(response.status);
                 console.log(response.data.data);
-                setStudentList(response.data.data)
+                setStudentList(response.data.data);
+                setData(response.data.data)
                 
             })
         }
@@ -35,15 +37,6 @@ export default function Student (){
             console.log(err);
         }
     },[]);
-
-
-
-    
-            
-    
-    
-
-
 
     return (
             <>
@@ -55,12 +48,12 @@ export default function Student (){
                     
                     ))}
             </h1>
-            <>
-            {showStudentPopup && < StudentInfoPopup  /> }
+          
+             < StudentInfoPopup data={data} /> 
             </>
             
                 
-            </>
+            
        )
 
     }

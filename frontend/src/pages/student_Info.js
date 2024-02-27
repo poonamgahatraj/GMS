@@ -8,6 +8,7 @@ import axios from 'axios';
 export default function StudentDetail(){
 
     const [studentData,setStudentData] = useState({});
+    const [data,setData]=useState(null);
 
 
     useEffect(()=>
@@ -19,6 +20,7 @@ export default function StudentDetail(){
                 console.log(response.status);
                 console.log(response.data.data);
                 setStudentData(response.data.data)
+                setData(response.data.data)
             })
         }
         
