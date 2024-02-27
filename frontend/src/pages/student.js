@@ -11,7 +11,7 @@ import StudentInfoPopup from './studentInfoPopup';
 
 export default function Student (){
     const [studentList,setStudentList] = useState([]);
-    const [data,setData]=useState({});
+    const [data,setData]=useState([]);
    
     const [showStudentPopup,setShowStudentPopup]=useState(true)
    
@@ -44,6 +44,7 @@ export default function Student (){
                     {studentList.map((item,index)=>(
                         <>
                         <li onClick={() => setShowStudentPopup(!showStudentPopup)}> {item.name}</li>
+                        <p>{item.address}</p>
                         </>
                     
                     ))}

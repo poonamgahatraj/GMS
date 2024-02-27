@@ -1,4 +1,4 @@
-import axios from 'axios'
+
 
 
 
@@ -13,10 +13,13 @@ export default function StudentInfoPopup({data}){
     <>
       <h1>i am student info Popup</h1>
     <ul>
-        <li>{data.name}</li>
-        <li>{data.dob}</li>
-        <li>{data.address}</li>
-
+       {data.map ((item,index)=>(
+        <>
+        <li>name :{item.name}</li>
+        <li>address :{item.address}</li>
+        </>
+        
+       ))}
     </ul>
 
       </>
