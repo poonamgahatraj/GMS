@@ -1,3 +1,5 @@
+import { useState } from "react"
+import axios from "axios";
 
 
 
@@ -9,18 +11,20 @@ export default function StudentInfoPopup({data}){
    
     return(
 
-   <div style={{border:"2px solid black",height:"150px",width:"200px"}}>
+   <div style={{border:"2px solid black"}}>
     <>
-      <h1>i am student info Popup</h1>
+      <h1>Popup Component</h1>
     <ul>
        {data.map ((item,index)=>(
         <>
-        <li>name :{item.name}</li>
-        <li>address :{item.address}</li>
+         <li>name :{item.name}</li> 
+        <p>DOB :{item.dob}</p>
+        <p>Address :{item.address}</p> 
         </>
-        
+       
        ))}
     </ul>
+    
 
       </>
       
