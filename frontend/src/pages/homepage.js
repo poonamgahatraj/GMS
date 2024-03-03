@@ -22,7 +22,7 @@ export default function Home (){
             <Link to="/s">StudentInfo</Link>
                 </button>
         <Outlet />
-        <Info arr={["A","B","C"]}/>
+       
       
         </>
     )

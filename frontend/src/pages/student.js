@@ -12,8 +12,8 @@ import StudentInfoPopup from './studentInfoPopup';
 
 export default function Student (){
     const [studentList,setStudentList] = useState([]);
-    const [data,setData]=useState([]);
-    const [selectedId, setSelectedId] = useState(null);
+    const [selectedStudent,setSelectedStudent]=useState({});
+    
    
     
    
@@ -29,7 +29,7 @@ export default function Student (){
                 console.log(response.status);
                 console.log(response.data.data);
                 setStudentList(response.data.data);
-                setData(response.data.data)
+               
                 
             })
         }
@@ -46,13 +46,12 @@ export default function Student (){
     console.log("check")
     try{
         axios
-        .get('http://127.0.0.1:8000/api/getAll')
+        .get('http://127.0.0.1:8000/api/'+id)
         .then((response) => {
             console.log(response.status);
             console.log(response.data.data);
-            setStudentList(response.data.data);
-            setData(response.data.data)
-            setSelectedId(id)
+            setSelectedStudent(response.data.data);
+           
             
         })
     }
@@ -69,14 +68,14 @@ export default function Student (){
             <h1>
                     {studentList.map((item,index)=>(
                         <>
-                        <li key={item.id} onClick={() => handleClick(item.id)}> {item.name}</li>
+                        <li key={item.id} onClick={() => handleClick(item.id)} > {item.name}</li>
                        
                         </>
                     
                     ))}
             </h1>
           
-             < StudentInfoPopup data={data}  /> 
+           < StudentInfoPopup selectedStudent={selectedStudent}  /> 
             </>
             
                 

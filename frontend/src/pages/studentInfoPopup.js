@@ -4,9 +4,11 @@ import axios from "axios";
 
 
 
-export default function StudentInfoPopup({data}){
+export default function StudentInfoPopup({selectedStudent}){
    
-
+  if (!selectedStudent) {
+    return <div>No student selected</div>;
+  }
 
    
     return(
@@ -14,16 +16,9 @@ export default function StudentInfoPopup({data}){
    <div style={{border:"2px solid black"}}>
     <>
       <h1>Popup Component</h1>
-    <ul>
-       {data.map ((item,index)=>(
-        <>
-         <li>name :{item.name}</li> 
-        <p>DOB :{item.dob}</p>
-        <p>Address :{item.address}</p> 
-        </>
-       
-       ))}
-    </ul>
+      <p>Name :{selectedStudent.name}</p>
+      <p>Address :{selectedStudent.address}</p>
+      <p>DOB :{selectedStudent.dob}</p>
     
 
       </>
