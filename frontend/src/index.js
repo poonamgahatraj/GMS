@@ -9,6 +9,7 @@ import Form from './pages/form';
 import Student from './pages/student';
 import StudentDetail from './pages/student_Info';
 import Info from './pages/props';
+import StudentPopup from './pages/new_task';
 
 
 export default function Route_pr(){
@@ -18,6 +19,7 @@ export default function Route_pr(){
 <Route path="/" element={<Home />}>
 <Route path="/Form" element={<Form/>}/>
 <Route path="/Student" element={<Student/>}/>
+<Route path="/StudentPopup" element={<StudentPopup/>}/>
 <Route path="/s" element={<StudentDetail/>}>
   <Route path=":id" element={<StudentDetail/>}/>
   </Route>

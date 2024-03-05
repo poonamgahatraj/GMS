@@ -21,6 +21,11 @@ export default function Home (){
             
             <Link to="/s">StudentInfo</Link>
                 </button>
+
+                <button>  
+            <Link to="/StudentPopup">click me</Link>
+            </button>
+       
         <Outlet />
        
       
