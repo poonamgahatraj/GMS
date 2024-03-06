@@ -37,8 +37,9 @@ useEffect(()=>
 },[]);
 
 
-function handleClick(id){
+function showDetails(id){
 
+    setShowPopup(true);
 console.log("check")
 try{
     axios
@@ -58,14 +59,13 @@ catch(err)
 }
 }
 
-function multiple_function(item){
-    show_Popup();
-    handleClick(item.id)
-}
+        
+    
 
-function show_Popup(){
-    setShowPopup(!showPopup)
-}
+
+//function show_Popup(){
+//    setShowPopup(!showPopup)
+//}
 
 
 
@@ -77,9 +77,9 @@ function show_Popup(){
         <h1>
                 {studentList.map((item,index)=>(
                     <>
-                    <div style={{border:"2px solid black",display:"flex",justifyContent:"space-between",width:"40%"}}>
+                    <div style={{border:"2px solid black",display:"flex",justifyContent:"space-between",width:"40%",marginBottom:"10px"}}>
                     <li   > {item.name}</li>
-                    <button   onClick={multiple_function}>View Details</button>
+                    <button  onClick={() => showDetails(item.id)}>View Details</button>
                     
                     </div>
                     
