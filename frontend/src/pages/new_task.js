@@ -39,7 +39,7 @@ useEffect(()=>
 
 function showDetails(id){
 
-    setShowPopup(true);
+    setShowPopup(!showPopup);
 console.log("check")
 try{
     axios
