@@ -1,13 +1,20 @@
 import ViewDetails from "./ViewDetails";
+import NewForm from "./form";
 import { useState,useEffect } from "react";
 import axios from "axios";
 
 
+
 export default function StudentPopup(){
+
+
 const [showPopup,setShowPopup]=useState(false);
+const [showForm,setShowForm]=useState(false);
 
 const [studentList,setStudentList] = useState([]);
 const [selectedStudent,setSelectedStudent]=useState({});
+
+
 
 
 
@@ -38,9 +45,10 @@ useEffect(()=>
 
 
 function showDetails(id){
+   
+    setShowPopup(true);
+    if(!showPopup)
 
-    setShowPopup(!showPopup);
-console.log("check")
 try{
     axios
     .get('http://127.0.0.1:8000/api/'+id)
@@ -67,13 +75,20 @@ catch(err)
 //    setShowPopup(!showPopup)
 //}
 
+function ShowForm (){
+setShowForm(true)
+}
 
+function closePopup(){
+setShowPopup(false)
+}
 
 
     
       
     return (
         <>
+        <button onClick={ShowForm}>Add Student</button>
         <h1>
                 {studentList.map((item,index)=>(
                     <>
@@ -87,7 +102,8 @@ catch(err)
                 
                 ))}
         </h1>
-       {showPopup && <ViewDetails selectedStudent={selectedStudent} /> } 
+       {showPopup &&  <ViewDetails onClose={closePopup} selectedStudent={selectedStudent} /> } 
+       {showForm && <NewForm />}
         </>
     )
 }
