@@ -76,7 +76,7 @@ catch(err)
 //}
 
 function ShowForm (){
-setShowForm(true)
+setShowForm(!showForm)
 }
 
 function closePopup(){
@@ -89,11 +89,11 @@ setShowPopup(false)
     return (
         <>
         <button onClick={ShowForm}>Add Student</button>
-        <h1>
+        <h3>
                 {studentList.map((item,index)=>(
                     <>
                     <div style={{border:"2px solid black",display:"flex",justifyContent:"space-between",width:"40%",marginBottom:"10px"}}>
-                    <li   > {item.name}</li>
+                    <p  > {item.name}</p>
                     <button  onClick={() => showDetails(item.id)}>View Details</button>
                     
                     </div>
@@ -101,9 +101,14 @@ setShowPopup(false)
                     </>
                 
                 ))}
-        </h1>
-       {showPopup &&  <ViewDetails onClose={closePopup} selectedStudent={selectedStudent} /> } 
-       {showForm && <NewForm />}
+        </h3>
+       {showPopup && <div style={{height:"100%",width:"100%",backgroundColor:"grey" ,border:"2px solid black",position:"absolute",top:"0",display:"flex",justifyContent:"center",alignItems:"center",opacity:"0.9"}}>
+         <ViewDetails closePopup={closePopup} selectedStudent={selectedStudent} />
+       </div>  } 
+
+       {showForm && <div style={{height:"100%",width:"100%",backgroundColor:"grey" ,border:"2px solid black",position:"absolute",top:"0",display:"flex",justifyContent:"center",alignItems:"center",opacity:"0.9"}}>
+       <NewForm />
+       </div>}
         </>
     )
 }

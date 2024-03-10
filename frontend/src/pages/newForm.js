@@ -31,9 +31,9 @@ function Info(event){
 
 export default function NewForm(){
     return(
-        <div style={{border:"1px solid black", width:"25%",position:"absolute",left:"70%",top:"0"}}>
+        <div style={{border:"1px solid black", width:"20%",position:"absolute",left:"70%",top:"0%"}}>
 
-        <form onSubmit={Info}>
+        <form onSubmit={Info} >
         <label>Name :</label>
         <input type="text" placeholder="enter your name" name="username"></input><br></br>
         <label>id :</label>
