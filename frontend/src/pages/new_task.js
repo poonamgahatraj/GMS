@@ -1,5 +1,6 @@
 import ViewDetails from "./ViewDetails";
 import NewForm from "./form";
+import Form from "./form";
 import { useState,useEffect } from "react";
 import axios from "axios";
 
@@ -47,7 +48,10 @@ useEffect(()=>
 function showDetails(id){
    
     setShowPopup(true);
-    if(!showPopup)
+   
+    document.body.style.overflow="hidden"
+   
+    
 
 try{
     axios
@@ -76,11 +80,19 @@ catch(err)
 //}
 
 function ShowForm (){
-setShowForm(!showForm)
+setShowForm(true)
+document.body.style.overflow="hidden"
 }
 
 function closePopup(){
 setShowPopup(false)
+document.body.style.overflow="auto"
+
+}
+
+function removeForm(){
+    setShowForm(false)
+    document.body.style.overflow="auto"
 }
 
 
@@ -102,12 +114,12 @@ setShowPopup(false)
                 
                 ))}
         </h3>
-       {showPopup && <div style={{height:"100%",width:"100%",backgroundColor:"grey" ,border:"2px solid black",position:"absolute",top:"0",display:"flex",justifyContent:"center",alignItems:"center",opacity:"0.9"}}>
+       {showPopup && 
          <ViewDetails closePopup={closePopup} selectedStudent={selectedStudent} />
-       </div>  } 
+         } 
 
-       {showForm && <div style={{height:"100%",width:"100%",backgroundColor:"grey" ,border:"2px solid black",position:"absolute",top:"0",display:"flex",justifyContent:"center",alignItems:"center",opacity:"0.9"}}>
-       <NewForm />
+       {showForm && <div style={{height:"100%",width:"100%",backgroundColor: ("135deg", "#4F6AC7", "#C7438E") ,border:"2px solid black",position:"absolute",top:"0",display:"flex",justifyContent:"center",alignItems:"center",opacity:"0.9"}}>
+       <Form removeForm={removeForm} />
        </div>}
         </>
     )
