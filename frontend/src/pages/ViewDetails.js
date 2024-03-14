@@ -7,9 +7,9 @@ function removePopup (){
     closePopup();
 }
     return(
-        <div style={{border:"2px solid black",height:"100%",width:"100%", display:"flex",justifyContent:"center",backgroundColor:"grey",opacity:"0.9",position:"absolute",top:"0",alignItems:"center"}}>
+        <div style={{border:"2px solid black",height:"100%",width:"100%", display:"flex",justifyContent:"center",backgroundColor:"rgba(128, 128, 128, 0.5)",position:"fixed",top:"0",alignItems:"center"}}>
          
-             <div style={{border:"1px solid black",width:"30%", height:"30%",backgroundColor:"white" ,padding:"10px",backgroundImage:"url(./scene.jpg)",backgroundSize:"cover"}}>
+             <div style={{width:"30%", height:"30%",backgroundColor:"white" ,padding:"10px",borderRadius:"10px"}}>
                 <div style={{display:"flex",justifyContent:"End"}}>
                 <button onClick={removePopup} style={{backgroundColor:"red",display:"flex",justifyContent:"flexEnd"}}>x</button>
                 </div>

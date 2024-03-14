@@ -38,13 +38,8 @@ export default function StudentDetail(){
 
 return(
     <>
-     <h1>Hello World {id}</h1>
-   <p>{studentData.name}</p>
-   <p>{studentData.address}</p>
-  
-
-
-  
+     <h1>Hello World { id }</h1>
+        <p>{studentData.name}</p>
     </>
    
 )

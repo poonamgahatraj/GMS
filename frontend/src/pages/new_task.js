@@ -118,9 +118,9 @@ function removeForm(){
          <ViewDetails closePopup={closePopup} selectedStudent={selectedStudent} />
          } 
 
-       {showForm && <div style={{height:"100%",width:"100%",backgroundColor: ("135deg", "#4F6AC7", "#C7438E") ,border:"2px solid black",position:"absolute",top:"0",display:"flex",justifyContent:"center",alignItems:"center",opacity:"0.9"}}>
+       {showForm && 
        <Form removeForm={removeForm} />
-       </div>}
+}
         </>
     )
 }
