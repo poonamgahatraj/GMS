@@ -58,7 +58,7 @@ function closeForm(){
 }
     return(
         <>{submitted && (
-            <div style={{height:"100%",width:"100%",backgroundColor: ("135deg", "#4F6AC7", "#C7438E") ,border:"2px solid black",position:"absolute",top:"0",display:"flex",justifyContent:"center",alignItems:"center",opacity:"0.9"}}>
+            <div style={{height:"100%",width:"100%",backgroundColor:"rgba(128, 128, 128, 0.5)" ,position:"absolute",top:"0",display:"flex",justifyContent:"center",alignItems:"center",opacity:"0.9"}}>
             <div style={{ width:"25%",backgroundColor:"white",borderRadius:"20px"}}>
 
 <form onSubmit={Info}>

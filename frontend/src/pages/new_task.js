@@ -42,7 +42,10 @@ useEffect(()=>
     {
         console.log(err);
     }
-},[]);
+},[]
+
+
+);
 
 
 function showDetails(id){
@@ -74,11 +77,6 @@ catch(err)
         
     
 
-
-//function show_Popup(){
-//    setShowPopup(!showPopup)
-//}
-
 function ShowForm (){
 setShowForm(true)
 document.body.style.overflow="hidden"
@@ -95,12 +93,35 @@ function removeForm(){
     document.body.style.overflow="auto"
 }
 
+function deleteStudent(id){
+    alert("are you sure you want to delete??")
+try{
+    axios
+    .delete('http://127.0.0.1:8000/api/'+id+'/delete')
+    .then(response => {
+       console.log(response)
+        setStudentList(studentList => studentList.filter(item => item.id !== id));
+      console.log('Student deleted successfully');
+    })
+
+}
+    catch(error){
+       console.log(error)
+      }
+
+}
+   
+
+
+
+
 
     
       
     return (
         <>
         <button onClick={ShowForm}>Add Student</button>
+        
         <h3>
                 {studentList.map((item,index)=>(
                     <>
@@ -109,9 +130,15 @@ function removeForm(){
                     <button  onClick={() => showDetails(item.id)}>View Details</button>
                     
                     </div>
+                    <div>
+                    <button onClick={() => deleteStudent(item.id)}>Delete student</button>
+                    </div>
                     
+                   
                     </>
-                
+                   
+                   
+                    
                 ))}
         </h3>
        {showPopup && 

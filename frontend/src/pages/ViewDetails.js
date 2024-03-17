@@ -7,7 +7,7 @@ function removePopup (){
     closePopup();
 }
     return(
-        <div style={{border:"2px solid black",height:"100%",width:"100%", display:"flex",justifyContent:"center",backgroundColor:"rgba(128, 128, 128, 0.5)",position:"fixed",top:"0",alignItems:"center"}}>
+        <div style={{height:"100%",width:"100%", display:"flex",justifyContent:"center",backgroundColor:"rgba(128, 128, 128, 0.5)",position:"fixed",top:"0",alignItems:"center"}}>
          
              <div style={{width:"30%", height:"30%",backgroundColor:"white" ,padding:"10px",borderRadius:"10px"}}>
                 <div style={{display:"flex",justifyContent:"End"}}>
