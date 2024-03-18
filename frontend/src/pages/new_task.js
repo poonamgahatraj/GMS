@@ -1,5 +1,5 @@
 import ViewDetails from "./ViewDetails";
-import NewForm from "./form";
+import EditForm from "./editForm";
 import Form from "./form";
 import { useState,useEffect } from "react";
 import axios from "axios";
@@ -110,6 +110,11 @@ try{
       }
 
 }
+
+function editData(){
+    console.log("hello")
+   
+}
    
 
 
@@ -121,6 +126,7 @@ try{
     return (
         <>
         <button onClick={ShowForm}>Add Student</button>
+        <button onClick={editData}>Edit</button>
         
         <h3>
                 {studentList.map((item,index)=>(
@@ -146,8 +152,9 @@ try{
          } 
 
        {showForm && 
-       <Form removeForm={removeForm} />
-}
+       <Form removeForm={removeForm} /> }
+
+       <EditForm  formId={1}/> 
         </>
     )
 }
