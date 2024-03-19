@@ -16,6 +16,10 @@ const [studentList,setStudentList] = useState([]);
 const [selectedStudent,setSelectedStudent]=useState({});
 
 
+const[editForm,setEditForm]=useState(false)
+const [studentId, setStudentId] = useState(null);
+
+
 
 
 
@@ -111,8 +115,12 @@ try{
 
 }
 
-function editData(){
-    console.log("hello")
+function editStudent(id){
+  setEditForm(true)
+
+  setStudentId(id);
+
+
    
 }
    
@@ -126,7 +134,7 @@ function editData(){
     return (
         <>
         <button onClick={ShowForm}>Add Student</button>
-        <button onClick={editData}>Edit</button>
+        
         
         <h3>
                 {studentList.map((item,index)=>(
@@ -138,6 +146,7 @@ function editData(){
                     </div>
                     <div>
                     <button onClick={() => deleteStudent(item.id)}>Delete student</button>
+                    <button onClick={()=>editStudent(item.id)}>Edit</button>
                     </div>
                     
                    
@@ -154,7 +163,10 @@ function editData(){
        {showForm && 
        <Form removeForm={removeForm} /> }
 
-       <EditForm  formId={1}/> 
+     {
+        editForm &&  <EditForm studentId={studentId}
+        setEditForm={setEditForm}/> 
+     } 
         </>
     )
 }
