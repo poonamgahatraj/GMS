@@ -147,6 +147,12 @@ function editStudent(id){
                     <div>
                     <button onClick={() => deleteStudent(item.id)}>Delete student</button>
                     <button onClick={()=>editStudent(item.id)}>Edit</button>
+
+                    {
+        editForm &&  studentId === item.id && <EditForm studentId={studentId}
+        setEditForm={setEditForm}
+        studentList={item}/> 
+     } 
                     </div>
                     
                    
@@ -163,10 +169,7 @@ function editStudent(id){
        {showForm && 
        <Form removeForm={removeForm} /> }
 
-     {
-        editForm &&  <EditForm studentId={studentId}
-        setEditForm={setEditForm}/> 
-     } 
+     
         </>
     )
 }

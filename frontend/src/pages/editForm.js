@@ -3,39 +3,41 @@ import axios from "axios";
 
 
 
-export default function EditForm({ studentId,setEditForm }){
+export default function EditForm({ studentId,setEditForm,studentList }){
     const [formData, setFormData] = useState({
       name: '',
       address: '',
       id: studentId
     });
+
+    useEffect(() => {
+        if (studentList) {
+          setFormData({
+            name: studentList.name,
+            address:studentList.address
+           
+          });
+        }
+      }, [studentList]);
     
-    useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/api/'+studentId)
-       
-        .then(data=>{
-            setFormData(data);
-        })
-
-        .catch(err=>{
-            console.log(err)
-        })
-
-        
-    })
+    
+    
    function handleInputChange (e) {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
+    setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+      });
+       
+           
+         
+     
     };
 
     function updateData (){
         
       
         try {
-           axios.put(`http://127.0.0.1:8000/api/edit`, formData);
+           axios.put(`http://127.0.0.1:8000/api/edit`, { id: studentList.id, ...formData });
             setEditForm(false)
             console.log('Student data updated successfully');
         } catch (error) {
@@ -60,10 +62,10 @@ export default function EditForm({ studentId,setEditForm }){
         
         
         <label>Name </label><br></br>
-        <input type="text" placeholder="enter your name" name="name"  onChange={handleInputChange} style={{width:"100%",height:"20px"}}></input><br></br>
+        <input type="text" placeholder="enter your name" name="name"  value={formData.name} onChange={handleInputChange} style={{width:"100%",height:"20px"}}></input><br></br>
         
         <label>Address </label><br></br>
-        <input type="text" placeholder="enter your Address" name="address" onChange={handleInputChange}  style={{width:"100%" ,height:"20px"}}></input><br></br>
+        <input type="text" placeholder="enter your Address" name="address" value={formData.address } onChange={handleInputChange}  style={{width:"100%" ,height:"20px"}}></input><br></br>
 
        
         <div style={{display:"flex",marginTop:"20px"}}>
