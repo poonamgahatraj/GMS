@@ -33,7 +33,7 @@ function Info(event){
             if (responseMessage === false) {
                
                 setSubmitted(false)
-
+                alert("form submitted successfully")
                
 
             }
@@ -58,7 +58,7 @@ function closeForm(){
 }
     return(
         <>{submitted && (
-            <div style={{height:"100%",width:"100%",backgroundColor:"rgba(128, 128, 128, 0.5)" ,position:"absolute",top:"0",display:"flex",justifyContent:"center",alignItems:"center",opacity:"0.9"}}>
+            <div style={{height:"100%",width:"100%",backgroundColor:"rgba(128, 128, 128, 0.5)" ,position:"absolute",top:"0",display:"flex",justifyContent:"center",alignItems:"center"}}>
             <div style={{ width:"25%",backgroundColor:"white",borderRadius:"20px"}}>
 
 <form onSubmit={Info}>

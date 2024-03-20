@@ -1,14 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 
-export default function EditForm({ studentId, setEditForm }){
+
+export default function EditForm({ studentId,setEditForm }){
     const [formData, setFormData] = useState({
-       username: '',
-       useraddress: ''
-      
+      name: '',
+      address: '',
+      id: studentId
     });
     
+    useEffect(()=>{
+        axios.get('http://127.0.0.1:8000/api/'+studentId)
+       
+        .then(data=>{
+            setFormData(data);
+        })
+
+        .catch(err=>{
+            console.log(err)
+        })
+
+        
+    })
    function handleInputChange (e) {
         const { name, value } = e.target;
         setFormData({
@@ -18,10 +32,11 @@ export default function EditForm({ studentId, setEditForm }){
     };
 
     function updateData (){
+        
       
         try {
-           axios.put(`http://127.0.0.1:8000/api/edit/`+ studentId, formData);
-            setEditForm(false); // Hide the form after successful update
+           axios.put(`http://127.0.0.1:8000/api/edit`, formData);
+            setEditForm(false)
             console.log('Student data updated successfully');
         } catch (error) {
             console.error('Error updating student data:', error);
@@ -45,10 +60,10 @@ export default function EditForm({ studentId, setEditForm }){
         
         
         <label>Name </label><br></br>
-        <input type="text" placeholder="enter your name" name="username"  onChange={handleInputChange} style={{width:"100%",height:"20px"}}></input><br></br>
+        <input type="text" placeholder="enter your name" name="name"  onChange={handleInputChange} style={{width:"100%",height:"20px"}}></input><br></br>
         
         <label>Address </label><br></br>
-        <input type="text" placeholder="enter your Address" name="useraddress" onChange={handleInputChange}  style={{width:"100%" ,height:"20px"}}></input><br></br>
+        <input type="text" placeholder="enter your Address" name="address" onChange={handleInputChange}  style={{width:"100%" ,height:"20px"}}></input><br></br>
 
        
         <div style={{display:"flex",marginTop:"20px"}}>
