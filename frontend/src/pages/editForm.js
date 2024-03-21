@@ -37,10 +37,19 @@ export default function EditForm({ studentId,setEditForm,studentList }){
         
       
         try {
-           axios.put(`http://127.0.0.1:8000/api/edit`, { id: studentList.id, ...formData });
-            setEditForm(false)
-            console.log('Student data updated successfully');
-        } catch (error) {
+           axios.put(`http://127.0.0.1:8000/api/edit`, { id: studentList.id, ...formData })
+           .then(function (response) {
+            console.log(response);
+
+           
+              setEditForm(true)
+               
+                
+               
+
+            })
+          }
+        catch (error) {
             console.error('Error updating student data:', error);
         }
 
