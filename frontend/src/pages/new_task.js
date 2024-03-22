@@ -1,6 +1,8 @@
 import ViewDetails from "./ViewDetails";
 import EditForm from "./editForm";
 import Form from "./form";
+import Alert from "./alert";
+
 import { useState,useEffect } from "react";
 import axios from "axios";
 
@@ -18,6 +20,9 @@ const [selectedStudent,setSelectedStudent]=useState({});
 
 const[editForm,setEditForm]=useState(false)
 const [studentId, setStudentId] = useState('');
+
+const [showAlert,setShowAlert]=useState(true)
+
 
 
 
@@ -128,7 +133,6 @@ function editStudent(id){
 
 
 
-
     
       
     return (
@@ -149,19 +153,22 @@ function editStudent(id){
                     <button onClick={()=>editStudent(item.id)}>Edit</button>
 
                     {
-        editForm &&  studentId === item.id && <EditForm studentId={studentId}
-        setEditForm={setEditForm}
-        studentList={item}/> 
-     } 
+                        editForm &&  studentId === item.id && <EditForm studentId={studentId}
+                        setEditForm={setEditForm}
+                        studentList={item}
+                      
+                      /> 
+                    } 
+                 
+                      
+     
+                     
                     </div>
-                    
-                   
-                    </>
-                   
-                   
-                    
+                    </>   
                 ))}
         </h3>
+             {showAlert && <Alert/>}    
+        
        {showPopup && 
          <ViewDetails closePopup={closePopup} selectedStudent={selectedStudent} />
          } 
@@ -169,7 +176,6 @@ function editStudent(id){
        {showForm && 
        <Form removeForm={removeForm} /> }
 
-     
         </>
     )
 }

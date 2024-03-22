@@ -3,12 +3,14 @@ import axios from "axios";
 
 
 
-export default function EditForm({ studentId,setEditForm,studentList }){
+
+export default function EditForm({ studentId,setEditForm,studentList,handleAlert }){
     const [formData, setFormData] = useState({
       name: '',
       address: '',
       id: studentId
     });
+   
 
     useEffect(() => {
         if (studentList) {
@@ -40,13 +42,14 @@ export default function EditForm({ studentId,setEditForm,studentList }){
            axios.put(`http://127.0.0.1:8000/api/edit`, { id: studentList.id, ...formData })
            .then(function (response) {
             console.log(response);
-
-           
-              setEditForm(true)
-               
-                
-               
-
+            if (!response.data.error) {
+            
+             setEditForm(false)
+             
+            }
+            else{
+              alert("error")
+            }
             })
           }
         catch (error) {
@@ -87,7 +90,7 @@ export default function EditForm({ studentId,setEditForm,studentList }){
             </div> 
         
         </div>
-       
+         
     )
 
 

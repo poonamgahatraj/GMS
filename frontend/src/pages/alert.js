@@ -1,17 +1,18 @@
 
 
 export default function Alert () {
-
+   
+    
 
     return(
-        <>
-        <div style={{border:"1px solid black",position:"absolute",left:"82%" ,height: "15%",width:"17%"}} >
+        
+        <div style={{border:"1px solid black",position:"absolute",left:"82%" ,height: "15%",width:"17%",top:"0"}} >
         <p>
            form updated successfully
         </p>
         </div>
 
         
-        </>
+       
     )
 }
